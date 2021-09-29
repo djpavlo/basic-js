@@ -29,11 +29,11 @@ describe('What season', () => {
                 summer,
                 autumn,
             ] = [
-                    new Date(2019, 11, 22, 23, 45, 11, 500),
-                    new Date(2018, 4, 17, 11, 27, 4, 321),
-                    new Date(2017, 6, 11, 23, 45, 11, 500),
-                    new Date(1994, 8, 26, 3, 0, 11, 500),
-                ];
+                new Date(2019, 11, 22, 23, 45, 11, 500),
+                new Date(2018, 4, 17, 11, 27, 4, 321),
+                new Date(2017, 6, 11, 23, 45, 11, 500),
+                new Date(1994, 8, 26, 3, 0, 11, 500),
+            ];
             assert.equal(getSeason(winter), 'winter');
             assert.equal(getSeason(spring), 'spring');
             assert.equal(getSeason(summer), 'summer');
@@ -47,11 +47,11 @@ describe('What season', () => {
                 summer,
                 autumn,
             ] = [
-                    new Date(1900, 0, 22, 23, 45, 11, 500),
-                    new Date(1354, 4, 17, 11, 27, 4, 321),
-                    new Date(1, 6, 13, 23, 45, 11, 500),
-                    new Date(22, 8, 22, 3, 0, 11, 500),
-                ];
+                new Date(1900, 0, 22, 23, 45, 11, 500),
+                new Date(1354, 4, 17, 11, 27, 4, 321),
+                new Date(1, 6, 13, 23, 45, 11, 500),
+                new Date(22, 8, 22, 3, 0, 11, 500),
+            ];
             assert.equal(getSeason(winter), 'winter');
             assert.equal(getSeason(spring), 'spring');
             assert.equal(getSeason(summer), 'summer');
@@ -65,18 +65,18 @@ describe('What season', () => {
                 summer,
                 autumn,
             ] = [
-                    new Date(2025, 1, 22, 23, 45, 11, 500),
-                    new Date(2134, 2, 17, 11, 27, 4, 321),
-                    new Date(2012, 5, 13, 23, 45, 11, 500),
-                    new Date(2019, 8, 22, 3, 0, 11, 500),
-                ];
+                new Date(2025, 1, 22, 23, 45, 11, 500),
+                new Date(2134, 2, 17, 11, 27, 4, 321),
+                new Date(2012, 5, 13, 23, 45, 11, 500),
+                new Date(2019, 8, 22, 3, 0, 11, 500),
+            ];
             assert.equal(getSeason(winter), 'winter');
             assert.equal(getSeason(spring), 'spring');
             assert.equal(getSeason(summer), 'summer');
             expect(getSeason(autumn)).to.match(/autumn|fall/);
         });
 
-        it.optional('corretly handles argument absence', function () {
+        it.optional('corretly handles argument absence', function() {
             const res = checkForNotThrowingErrors.call(this, [
                 () => getSeason()
             ]);
@@ -188,7 +188,7 @@ describe('What season', () => {
     });
 
     describe('extended requirements ', () => {
-        it.optional('throws an error with message "Invalid date!" on invalid argument', function () {
+        it.optional('throws an error with message "Invalid date!" on invalid argument', function() {
             const res = checkForThrowingErrors.call(this, [
                 () => getSeason('foo'),
                 () => getSeason({ John: 'Smith' }),
@@ -200,7 +200,7 @@ describe('What season', () => {
             assert.strictEqual(res.every($ => $ === CORRECT_RESULT_MSG), true);
         });
 
-        it.optional('throws an error with message "Invalid date!" on tricky moment', function () {
+        it.optional('throws an error with message "Invalid date!" on tricky moment', function() {
             const fakeDate = {
                 toString() {
                     return Date.prototype.toString.call(new Date());
@@ -217,7 +217,7 @@ describe('What season', () => {
             assert.strictEqual(res.every($ => $ === CORRECT_RESULT_MSG), true);
         });
 
-        it.optional('throws an error with message "Invalid date!" on a very tricky moment', function () {
+        it.optional('throws an error with message "Invalid date!" on a very tricky moment', function() {
             const deeperFakeDate = {
                 toString() {
                     return Date.prototype.toString.call(new Date());
