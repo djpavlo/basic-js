@@ -20,17 +20,5 @@ export default function countCats(matrix) {
     flatarray.forEach(element => {
         if (element == "^^") cnt++;
     });
-
     return cnt;
-    // throw new NotImplementedError('Not implemented');
-    // remove line with error and write your code here
 }
-
-
-let res = countCats([
-    [0, 1, '^^'],
-    [0, '^^', 2],
-    ['^^', 1, 2]
-]);
-
-console.log(res);
